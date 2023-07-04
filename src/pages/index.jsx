@@ -1,6 +1,12 @@
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useLayoutEffect, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper/modules";
 
 function DownSide(props) {
   const [buttons, setButtons] = useState({ prev: false, next: true });
@@ -66,9 +72,11 @@ const Home = ({ data }) => {
     window.addEventListener("scroll", worker);
     return () => window.removeEventListener("scroll", worker);
   }, []);
-
   return (
     <div className="home">
+      <Head>
+        <title>Vacation Homes & Condo Rentals - Airbnb - Airbnb</title>
+      </Head>
       <header>
         <div className="upside">
           <Link className="logo" href={"/"}>
@@ -97,7 +105,61 @@ const Home = ({ data }) => {
         <DownSide filterItems={data.sections.sections[0].section.filterItems} />
       </header>
       <ul className="items">
-        <h1>Items</h1>
+        {data.sections.sectionIndependentData.staysSearch.searchResults.map(
+          (result) => {
+            return (
+              <li>
+                <Link href={"/beluvana-bali-owl-gamboo-house"}>
+                  <div className="images">
+                    <Swiper
+                      modules={[Navigation, Pagination]}
+                      slidesPerView={1}
+                      pagination={{
+                        clickable: true,
+                      }}
+                      navigation={{
+                        nextEl: `.swiper-button-nextx${result.listing.id}`,
+                        prevEl: `.swiper-button-prevx${result.listing.id}`,
+                      }}
+                      allowTouchMove={false}
+                    >
+                      {result.listing.contextualPictures.map((picture) => {
+                        return (
+                          <SwiperSlide>
+                            <Image
+                              src={picture.picture}
+                              width={500}
+                              height={500}
+                            />
+                          </SwiperSlide>
+                        );
+                      })}
+                    </Swiper>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }}
+                      className={`swiper-button-prevx${result.listing.id} btnn prev`}
+                    >
+                      <PrevIcon />
+                    </button>{" "}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }}
+                      className={`swiper-button-nextx${result.listing.id} btnn next`}
+                    >
+                      <NextIcon />
+                    </button>
+                  </div>
+                  <p>{result.listing.city}</p>
+                </Link>
+              </li>
+            );
+          }
+        )}
       </ul>
     </div>
   );

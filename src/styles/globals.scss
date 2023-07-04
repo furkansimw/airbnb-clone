@@ -32,20 +32,22 @@ body {
 }
 
 .home {
+  @media screen and (max-width: 1500px) {
+    .upside,
+    .downside,
+    .items {
+      padding-left: 40px !important;
+      padding-right: 40px !important;
+    }
+  }
   header {
     position: fixed;
     top: 0px;
+    z-index: 5000;
     height: 178px;
     width: 100vw;
     background-color: white;
     transition: 0.3s ease-in-out box-shadow;
-    @media screen and (max-width: 1500px) {
-      .upside,
-      .downside {
-        padding-left: 40px !important;
-        padding-right: 40px !important;
-      }
-    }
     &.up {
       height: 158px;
       box-shadow: rgb(0 0 0 / 16%) 0 0 calc(2px + 4px);
@@ -173,6 +175,7 @@ body {
       }
     }
     .downside {
+      background-color: white;
       transition: 0.3s ease-in-out padding-top;
       height: 98px;
       padding-left: 80px;
@@ -202,10 +205,21 @@ body {
             display: flex;
             flex-direction: column;
             align-items: center;
+            user-select: none;
             margin: 0px 20px;
+            transition: 0.1s ease-in-out all;
             &:hover {
               img {
                 opacity: 1 !important;
+              }
+              p {
+                color: #000 !important;
+              }
+            }
+            &:active {
+              transform: scale(0.95);
+              img {
+                margin-bottom: 5px !important;
               }
             }
             img {
@@ -298,6 +312,121 @@ body {
         p {
           margin-left: 6px;
           font-size: 12px;
+        }
+      }
+    }
+  }
+  .items {
+    padding: 0px 80px;
+    margin-top: 15rem;
+    display: grid;
+    row-gap: 3rem;
+    column-gap: 22px;
+    grid-template-columns: repeat(6, 1fr);
+    @media screen and (max-width: 1880px) {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @media screen and (max-width: 1650px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @media screen and (max-width: 1120px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media screen and (max-width: 950px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    li {
+      border-radius: 12px;
+      overflow: hidden;
+      height: fit-content;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      &:hover {
+        .btnn {
+          pointer-events: all !important;
+          opacity: 0.7 !important;
+        }
+      }
+      .images {
+        overflow: hidden;
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        .swiper-pagination-bullet {
+          &:first-child {
+            margin-left: 0px;
+            transform: scale(0.7);
+          }
+          &:last-child {
+            margin-right: 0px;
+            transform: scale(0.7);
+          }
+          transform: scale(0.86);
+          margin: 0px 1.5px;
+          background-color: white;
+          opacity: 0.5;
+        }
+        .swiper-pagination-bullet-active {
+          opacity: 1;
+        }
+        .swiper,
+        .swiper-slide,
+        .swiper-wrapper {
+          aspect-ratio: 1;
+          width: 100%;
+        }
+        .swiper-button-disabled {
+          opacity: 0 !important;
+          cursor: default;
+        }
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+        }
+        .next {
+          right: 12px;
+        }
+        .prev {
+          left: 12px;
+        }
+        .btnn {
+          border-radius: 100%;
+          top: calc(50% - 12px);
+          z-index: 100;
+          opacity: 0.7;
+          position: absolute;
+          width: 24px;
+          display: flex;
+          opacity: 0;
+          pointer-events: none;
+          align-items: center;
+          justify-content: center;
+          height: 24px;
+          transition: 0.3s ease-in-out all;
+          background-color: white;
+          svg {
+            margin: 0px !important;
+          }
+          &:hover {
+            transform: scale(1.1);
+            opacity: 1;
+          }
+          box-shadow: 0 0 0 1px transparent, 0 0 0 4px transparent,
+            0 2px 4px rgba(0, 0, 0, 0.18);
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+          z-index: 10;
+          display: none;
+        }
+        &:hover {
+          .swiper-button-prev,
+          .swiper-button-next {
+            display: block;
+          }
         }
       }
     }
