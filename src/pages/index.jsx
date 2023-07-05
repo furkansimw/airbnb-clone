@@ -159,9 +159,10 @@ const Home = ({ data }) => {
                   <div className="text">
                     <div className="up">
                       <p className="city">{result.listing.city}</p>
-                      <p className="rate">
+                      <div className="rate">
                         <StarIcon />
-                      </p>
+                        <p>{result.listing.avgRatingLocalized}</p>
+                      </div>
                     </div>
                     <div className="view">
                       {result.listing.structuredContent.mapCategoryInfo[0].body}
@@ -194,18 +195,16 @@ const Home = ({ data }) => {
 
 export default Home;
 
-export const getServerSideProps = async (ctx) => {
-  const url =
+export const getServerSideProps = () =>
+  fetch(
     (process.env.NODE_ENV === "production"
       ? process.env.URL
-      : "http://localhost:3000") + "/api";
-
-  const res = await fetch(url + "/home");
-  const data = await res.json();
-  return {
-    props: { data },
-  };
-};
+      : "http://localhost:3000") +
+      "/api" +
+      "/home"
+  )
+    .then((r) => r.json())
+    .then((r) => ({ props: { data: r } }));
 
 const Logo = () => (
   <svg width="102" height="32" className="logoicon">
@@ -372,7 +371,7 @@ const StarIcon = () => (
     fill="currentcolor"
   >
     <path
-      fill-rule="evenodd"
+      fillRule="evenodd"
       d="m15.1 1.58-4.13 8.88-9.86 1.27a1 1 0 0 0-.54 1.74l7.3 6.57-1.97 9.85a1 1 0 0 0 1.48 1.06l8.62-5 8.63 5a1 1 0 0 0 1.48-1.06l-1.97-9.85 7.3-6.57a1 1 0 0 0-.55-1.73l-9.86-1.28-4.12-8.88a1 1 0 0 0-1.82 0z"
     ></path>
   </svg>

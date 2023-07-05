@@ -351,6 +351,7 @@ body {
       height: fit-content;
       position: relative;
       width: 100%;
+
       &:hover {
         .btnn {
           pointer-events: all !important;
@@ -403,6 +404,7 @@ body {
         .prev {
           left: 12px;
         }
+
         .btnn {
           border-radius: 100%;
           top: calc(50% - 12px);
@@ -441,6 +443,7 @@ body {
         }
       }
       .text {
+        padding-bottom: 4px;
         p {
           line-height: 19px;
           font-size: 1rem;
@@ -455,7 +458,8 @@ body {
             display: flex;
             align-items: center;
             svg {
-              margin-right: 4px;
+              margin-top: 1px;
+              margin-right: 6px;
             }
           }
         }
