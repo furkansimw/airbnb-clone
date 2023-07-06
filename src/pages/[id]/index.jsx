@@ -66,7 +66,7 @@ const Page = ({ data }) => {
 
     const observer = new IntersectionObserver(callback, options);
     observer.observe(images);
-  }, [active]);
+  }, []);
 
   return (
     <>
