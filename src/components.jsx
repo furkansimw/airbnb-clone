@@ -197,6 +197,68 @@ export function MoreContent({ setMore, more: { more, offers } }) {
                 <p>Iron</p>
               </li>
             </ul>
+            <ul>
+              <h2>Internet and office</h2>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path d="M16 20.33a3.67 3.67 0 1 1 0 7.34 3.67 3.67 0 0 1 0-7.34zm0 2a1.67 1.67 0 1 0 0 3.34 1.67 1.67 0 0 0 0-3.34zM16 15a9 9 0 0 1 8.04 4.96l-1.51 1.51a7 7 0 0 0-13.06 0l-1.51-1.51A9 9 0 0 1 16 15zm0-5.33c4.98 0 9.37 2.54 11.94 6.4l-1.45 1.44a12.33 12.33 0 0 0-20.98 0l-1.45-1.45A14.32 14.32 0 0 1 16 9.66zm0-5.34c6.45 0 12.18 3.1 15.76 7.9l-1.43 1.44a17.64 17.64 0 0 0-28.66 0L.24 12.24c3.58-4.8 9.3-7.9 15.76-7.9z"></path>
+                </svg>
+                <p>Wifi</p>
+              </li>
+            </ul>
+            <ul>
+              <h2>Kitchen and dining</h2>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path d="M26 1a5 5 0 0 1 5 5c0 6.39-1.6 13.19-4 14.7V31h-2V20.7c-2.36-1.48-3.94-8.07-4-14.36v-.56A5 5 0 0 1 26 1zm-9 0v18.12c2.32.55 4 3 4 5.88 0 3.27-2.18 6-5 6s-5-2.73-5-6c0-2.87 1.68-5.33 4-5.88V1zM2 1h1c4.47 0 6.93 6.37 7 18.5V21H4v10H2zm14 20c-1.6 0-3 1.75-3 4s1.4 4 3 4 3-1.75 3-4-1.4-4-3-4zM4 3.24V19h4l-.02-.96-.03-.95C7.67 9.16 6.24 4.62 4.22 3.36L4.1 3.3zm19 2.58v.49c.05 4.32 1.03 9.13 2 11.39V3.17a3 3 0 0 0-2 2.65zm4-2.65V17.7c.99-2.31 2-7.3 2-11.7a3 3 0 0 0-2-2.83z"></path>
+                </svg>
+                <div className="text">
+                  <p>Kitchen</p>
+                  <p className="de">
+                    Space where guests can cook their own meals
+                  </p>
+                </div>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path d="M25 1a2 2 0 0 1 2 1.85V29a2 2 0 0 1-1.85 2H7a2 2 0 0 1-2-1.85V3a2 2 0 0 1 1.85-2H7zm0 10H7v18h18zm-15 2a1 1 0 1 1 0 2 1 1 0 0 1 0-2zM25 3H7v6h18zM10 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path>
+                </svg>
+                <p>Refrigerator</p>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  aria-hidden="true"
+                  role="presentation"
+                  focusable="false"
+                >
+                  <path d="M29 1v2a13 13 0 0 0-.3 26h.3v2a15 15 0 0 1-.31-30zM3 1h2v6h2V1h2v6h2V1h2v9a5 5 0 0 1-4 4.9V31H7V14.9a5.01 5.01 0 0 1-3.98-4.44L3 10.22V10zm26 6v2a7 7 0 0 0-.24 14H29v2a9 9 0 0 1-.27-18zM11 9H5v1.15a3 3 0 0 0 6 .03V10z"></path>
+                </svg>
+                <div className="text">
+                  <p>Dishes and silverware</p>
+                  <p className="de">Bowls, chopsticks, plates, cups, etc.</p>
+                </div>
+              </li>
+            </ul>
           </ul>
         ) : (
           <div className="text">
