@@ -14,6 +14,7 @@ import {
   All,
   BedIcon,
   DiveIcon,
+  DownIcon,
   HostBadge,
   KeyIcon,
   MedalIcon,
@@ -60,6 +61,18 @@ const Page = ({ data }) => {
       entries.map((entry) => setActive(!entry.isIntersecting && "active"));
     const observer = new IntersectionObserver(callback, options);
     observer.observe(images);
+  }, []);
+
+  useEffect(() => {
+    const options = { root: null, rootMargin: "-80px", threshold: 0 };
+    const callback = (entries) =>
+      entries.map((entry) =>
+        document
+          .querySelector("#xddd")
+          .classList.toggle("active", !entry.isIntersecting)
+      );
+    const observer = new IntersectionObserver(callback, options);
+    observer.observe(document.querySelector("#check"));
   }, []);
 
   return (
@@ -239,14 +252,39 @@ const Page = ({ data }) => {
                 </div>
               </div>
               <div className="reserve">
-                <p className="l">
-                  € 461 <span>night</span>
-                </p>
-                <div className="r">
-                  <StarIcon />
-                  {startRating}·{reviewCount} reviews
+                <div className="up">
+                  <p className="l">
+                    <span>€ 472</span> night
+                  </p>
+                  <div className="r">
+                    <StarIcon />
+                    {startRating}
+                    <span className="dot">·</span>
+                    <span className="rc">{reviewCount} reviews</span>
+                  </div>
                 </div>
-                <button>Check availability</button>
+                <div className="contentx">
+                  <div className="u">
+                    <div className="div">
+                      <h3>CHECK-IN</h3>
+                      <p>Add date</p>
+                    </div>
+                    <div className="div">
+                      <h3>CHECKOUT</h3>
+                      <p>Add date</p>
+                    </div>
+                  </div>
+                  <div className="div">
+                    <h3>GUESTS</h3>
+                    <p>Add date</p>
+                    <button>
+                      <DownIcon />
+                    </button>
+                  </div>
+                </div>
+                <button id="check" className="check">
+                  Check availability
+                </button>
               </div>
             </section>
           </main>

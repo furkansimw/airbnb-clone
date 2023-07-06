@@ -2,6 +2,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useEffect, useRef, useState } from "react";
 import { CloseIcon } from "./icons";
 import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers";
+import { StarIcon } from "./pages";
 
 export function MoreContent({ setMore, more: { more, offers } }) {
   useEffect(() => {
@@ -623,6 +624,19 @@ export function PlaceList(props) {
           <li>
             <button>Location</button>
           </li>
+          <div className={`check`} id="xddd">
+            <div className="text">
+              <div className="price">
+                € 472 <span>night</span>
+              </div>
+              <div className="star">
+                <StarIcon />
+                <span>4.86</span> <span className="dot">·</span> 126 reviews
+              </div>
+            </div>
+
+            <button>CHECK AVAILABILITY</button>
+          </div>
         </ul>
       </div>
     </div>

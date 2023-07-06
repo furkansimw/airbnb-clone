@@ -982,13 +982,90 @@ body {
         .reserve {
           height: min-content;
           position: sticky;
-          width: 304px;
-          top: 50%;
+          width: 374px;
+          top: 200px;
           right: 0px;
           transition: 0.3s ease-in-out all;
           margin: 48px 0px 4rem;
           padding: 24px;
-          button {
+          border-radius: 12px;
+          box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+          background-color: white;
+          .up {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 22px;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-bottom: 24px;
+            .l {
+              display: flex;
+              align-items: center;
+              font-weight: 400;
+              font-size: 16px;
+              span {
+                font-size: 22px;
+                font-weight: 600;
+                margin-right: 6px;
+              }
+            }
+            .r {
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+              .dot {
+                margin: 0px 4px;
+              }
+              .rc {
+                color: #717171;
+                font-weight: 400;
+              }
+            }
+          }
+          .contentx {
+            border-radius: 8px;
+
+            margin-bottom: 1rem;
+            border: 1px solid #222;
+            .u {
+              display: flex;
+              width: 100%;
+              .div {
+                &:first-child {
+                  border-right: 1px solid #222;
+                }
+                width: 100%;
+                border-bottom: 1px solid #222;
+              }
+            }
+            .div {
+              height: 56px;
+              display: flex;
+              padding-left: 12px;
+              position: relative;
+              align-items: start;
+              flex-direction: column;
+              justify-content: center;
+              h3 {
+                text-align: center;
+                font-size: 10px;
+                font-weight: 700;
+                position: relative;
+                line-height: 12px;
+              }
+              p {
+                font-size: 14px;
+                color: #717171;
+                font-weight: 400;
+              }
+              button {
+                position: absolute;
+                right: 24px;
+              }
+            }
+          }
+          .check {
             width: 100%;
             font-size: 1rem;
             font-weight: 600;
@@ -1069,6 +1146,8 @@ footer#footer {
       display: flex;
       align-items: center;
       height: 100%;
+      position: relative;
+
       li {
         margin-right: 2rem;
         height: 100%;
@@ -1096,6 +1175,73 @@ footer#footer {
               background-color: #222;
             }
           }
+        }
+      }
+      .check {
+        position: absolute;
+        right: 80px;
+        display: flex;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s ease-in-out all;
+        align-items: center;
+
+        &.active {
+          opacity: 1;
+          pointer-events: all;
+        }
+        .text {
+          .price {
+            font-weight: 600;
+            font-size: 18px;
+            span {
+              font-size: 1rem;
+              font-weight: 400;
+            }
+          }
+          .star {
+            display: flex;
+            font-size: 14px;
+            margin-right: 1rem;
+            align-items: center;
+            svg {
+              width: 10px;
+              height: 10px;
+              margin-right: 6px;
+            }
+            span {
+              font-weight: 600;
+            }
+            .dot {
+              margin: 0px 3px;
+            }
+          }
+        }
+        button {
+          height: min-content;
+          white-space: nowrap;
+          width: 200px;
+          font-size: 1rem;
+          font-weight: 600;
+          color: #fff !important;
+          padding: 14px 24px;
+          border-radius: 8px;
+          transition: 0.15s ease-in-out all;
+          &:active {
+            transform: scale(0.95);
+            background: linear-gradient(
+              to left,
+              #e61e4d 0%,
+              #e31c5f 50%,
+              #d70466 100%
+            ) !important;
+          }
+          background: linear-gradient(
+            to right,
+            #e61e4d 0%,
+            #e31c5f 50%,
+            #d70466 100%
+          );
         }
       }
     }
