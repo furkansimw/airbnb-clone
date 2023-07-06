@@ -25,11 +25,14 @@ import {
 } from "@/icons";
 import {
   DateView,
+  Footer,
+  Map,
   MoreBg,
   MoreContent,
   OffsersList,
   PlaceList,
 } from "@/components";
+import Head from "next/head";
 
 const Page = ({ data }) => {
   const title =
@@ -224,7 +227,7 @@ const Page = ({ data }) => {
                       the entire house to escape the life that is full of drama
                       into a journey with ultimate joy.
                       <br />
-                      ...
+                      sleep ...
                     </p>
                     <button onClick={() => setMore("more")}>
                       Show more <NextIcon />
@@ -287,22 +290,157 @@ const Page = ({ data }) => {
             </section>
           </main>
           <div id="reviews">
-            <h1>Revieww</h1>
+            <div className="upp">
+              <h1>
+                <StarIcon />
+                4.86 · 126 reviews
+              </h1>
+              <ul className="a">
+                <ul className="l">
+                  <li>
+                    <p>Cleanliness</p>
+                    <div className="div">
+                      <span className="m"></span>
+                    </div>
+                    <p>4.8</p>
+                  </li>
+                  <li>
+                    <p>Communication</p>
+                    <div className="div">
+                      <span></span>
+                    </div>
+                    <p>4.9</p>
+                  </li>
+                  <li>
+                    <p>Check-in</p>
+                    <div className="div">
+                      <span></span>
+                    </div>
+                    <p>4.9</p>
+                  </li>
+                </ul>
+                <ul className="l">
+                  <li>
+                    <p>Accuracy</p>
+                    <div className="div">
+                      <span></span>
+                    </div>
+                    <p>4.9</p>
+                  </li>
+                  <li>
+                    <p>Location</p>
+                    <div className="div">
+                      <span className="m"></span>
+                    </div>
+                    <p>4.8</p>
+                  </li>
+                  <li>
+                    <p>Value</p>
+                    <div className="div">
+                      <span className="s"></span>
+                    </div>
+                    <p>4.7</p>
+                  </li>
+                </ul>
+              </ul>
+            </div>
+            <ul>
+              <li>
+                <div className="profile">
+                  <Image
+                    width={40}
+                    height={40}
+                    src="https://a0.muscache.com/im/pictures/user/48bfe386-b947-443d-a7d8-9ba16dd87c1f.jpg?im_w=240"
+                  />
+                  <p className="name">Aldo</p>
+                  <p className="date">June 2023</p>
+                </div>
+                <p className="content">
+                  The service is impeccable. The staff is super friendly and
+                  responsive.
+                  <br /> We highly recommend it.
+                </p>
+              </li>
+              <li>
+                <div className="profile">
+                  <Image
+                    src="https://a0.muscache.com/im/pictures/user/6d4366ac-fea5-4865-a914-5bf6cc2c8286.jpg?im_w=240"
+                    width={40}
+                    height={40}
+                  />
+                  <p className="name">Anisha</p>
+                  <p className="date">June 2023</p>
+                </div>
+
+                <p className="content">
+                  we loved the place to stay beautiful night was so good &
+                  lovely morning sounds
+                </p>
+              </li>
+              <li>
+                <div className="profile">
+                  <Image
+                    src="https://a0.muscache.com/im/pictures/user/User-44531743/original/9f9b36c8-22fd-4f51-a2e2-1eb85c0e1865.jpeg?im_w=240"
+                    width={40}
+                    height={40}
+                  />
+                  <p className="name">Sanal</p>
+                  <p className="date">June 2023</p>
+                </div>
+                <p className="content">
+                  We had a very relaxing time in the villa. The hosts were very
+                  responsive when we had questions. The food they cooked was
+                  also great!
+                </p>
+              </li>
+              <li>
+                <div className="profile">
+                  <Image
+                    src="https://a0.muscache.com/im/pictures/user/User-56556621/original/106504df-e131-45b2-8bab-aa809f8f5737.jpeg?im_w=240"
+                    width={40}
+                    height={40}
+                  />
+                  <p className="name">Yiting</p>
+                  <p className="date">May 2023</p>
+                </div>
+                <p className="content">We had a wonderful time at Veluvana!</p>
+              </li>
+              <li>
+                <div className="profile">
+                  <Image
+                    src="https://a0.muscache.com/im/pictures/user/fa2b5a4d-fc11-438f-9ffc-21c6aab6129f.jpg?im_w=240"
+                    width={40}
+                    height={40}
+                  />
+                  <p className="name">Muhammad</p>
+                  <p className="date">May 2023</p>
+                </div>
+                <p className="content">It was just perfect. Thank you 🙏</p>
+              </li>
+              <li>
+                <div className="profile">
+                  <Image
+                    src="https://a0.muscache.com/im/pictures/user/7832c8d6-16e3-4aed-a923-d5c57c2350db.jpg?im_w=240"
+                    width={40}
+                    height={40}
+                  />
+                  <p className="name">Alex</p>
+                  <p className="date">May 2023</p>
+                </div>
+                <p className="content">
+                  It was an amazing experience, I will never forget the words
+                  before entering ARE YOU READY and we saw this wonderful place.
+                </p>
+              </li>
+            </ul>
+            <button onClick={() => setMore("reviews")}>
+              Show all 126 reviews
+            </button>
           </div>
-          <div id="map">
-            <h1>Mapp</h1>
-          </div>
-          <div id="host">
-            <h1>Host</h1>
-          </div>
-          <div className="things-to-know"></div>
+          <Map />
         </div>
       </div>
-      <footer id="footer">
-        <div className="content">
-          <h1>Footer</h1>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 };

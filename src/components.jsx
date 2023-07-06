@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { CloseIcon } from "./icons";
 import { DateCalendar, LocalizationProvider } from "@mui/x-date-pickers";
 import { StarIcon } from "./pages";
+import Image from "next/image";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 
 export function MoreContent({ setMore, more }) {
   useEffect(() => {
@@ -29,7 +31,7 @@ export function MoreContent({ setMore, more }) {
       <Safe />
     );
   return (
-    <div className={`morecontent ${more && "active"}`}>
+    <div className={`morecontent ${more} ${more && "active"}`}>
       <div className="header">
         <button onClick={() => setMore()}>
           <CloseIcon />
@@ -43,8 +45,484 @@ export function MoreContent({ setMore, more }) {
 }
 
 const Reviews = () => (
-  <div className="reviews">
-    <h1>Reviews</h1>
+  <div className="reviewspopup">
+    <div className="upp">
+      <h1>
+        <StarIcon />
+        4.86 · 126 reviews
+      </h1>
+      <ul>
+        <li>
+          <p>Cleanliness</p>
+          <div className="div">
+            <span className="m"></span>
+          </div>
+          <p>4.8</p>
+        </li>
+        <li>
+          <p>Communication</p>
+          <div className="div">
+            <span></span>
+          </div>
+          <p>4.9</p>
+        </li>
+        <li>
+          <p>Check-in</p>
+          <div className="div">
+            <span></span>
+          </div>
+          <p>4.9</p>
+        </li>
+        <li>
+          <p>Accuracy</p>
+          <div className="div">
+            <span></span>
+          </div>
+          <p>4.9</p>
+        </li>
+        <li>
+          <p>Location</p>
+          <div className="div">
+            <span className="m"></span>
+          </div>
+          <p>4.8</p>
+        </li>
+        <li>
+          <p>Value</p>
+          <div className="div">
+            <span className="s"></span>
+          </div>
+          <p>4.7</p>
+        </li>
+      </ul>
+    </div>
+    <ul>
+      <li>
+        <div className="profile">
+          <Image
+            width={40}
+            height={40}
+            src="https://a0.muscache.com/im/pictures/user/48bfe386-b947-443d-a7d8-9ba16dd87c1f.jpg?im_w=240"
+          />
+          <p className="name">Aldo</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          The service is impeccable. The staff is super friendly and responsive.
+          <br /> We highly recommend it.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/6d4366ac-fea5-4865-a914-5bf6cc2c8286.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Anisha</p>
+          <p className="date">June 2023</p>
+        </div>
+
+        <p className="content">
+          we loved the place to stay beautiful night was so good & lovely
+          morning sounds
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-44531743/original/9f9b36c8-22fd-4f51-a2e2-1eb85c0e1865.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Sanal</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          We had a very relaxing time in the villa. The hosts were very
+          responsive when we had questions. The food they cooked was also great!
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-56556621/original/106504df-e131-45b2-8bab-aa809f8f5737.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Yiting</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">We had a wonderful time at Veluvana!</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/fa2b5a4d-fc11-438f-9ffc-21c6aab6129f.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Muhammad</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">It was just perfect. Thank you 🙏</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/7832c8d6-16e3-4aed-a923-d5c57c2350db.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Alex</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">
+          It was an amazing experience, I will never forget the words before
+          entering ARE YOU READY and we saw this wonderful place.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            width={40}
+            height={40}
+            src="https://a0.muscache.com/im/pictures/user/48bfe386-b947-443d-a7d8-9ba16dd87c1f.jpg?im_w=240"
+          />
+          <p className="name">Aldo</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          The service is impeccable. The staff is super friendly and responsive.
+          <br /> We highly recommend it.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/6d4366ac-fea5-4865-a914-5bf6cc2c8286.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Anisha</p>
+          <p className="date">June 2023</p>
+        </div>
+
+        <p className="content">
+          we loved the place to stay beautiful night was so good & lovely
+          morning sounds
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-44531743/original/9f9b36c8-22fd-4f51-a2e2-1eb85c0e1865.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Sanal</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          We had a very relaxing time in the villa. The hosts were very
+          responsive when we had questions. The food they cooked was also great!
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-56556621/original/106504df-e131-45b2-8bab-aa809f8f5737.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Yiting</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">We had a wonderful time at Veluvana!</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/fa2b5a4d-fc11-438f-9ffc-21c6aab6129f.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Muhammad</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">It was just perfect. Thank you 🙏</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/7832c8d6-16e3-4aed-a923-d5c57c2350db.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Alex</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">
+          It was an amazing experience, I will never forget the words before
+          entering ARE YOU READY and we saw this wonderful place.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            width={40}
+            height={40}
+            src="https://a0.muscache.com/im/pictures/user/48bfe386-b947-443d-a7d8-9ba16dd87c1f.jpg?im_w=240"
+          />
+          <p className="name">Aldo</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          The service is impeccable. The staff is super friendly and responsive.
+          <br /> We highly recommend it.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/6d4366ac-fea5-4865-a914-5bf6cc2c8286.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Anisha</p>
+          <p className="date">June 2023</p>
+        </div>
+
+        <p className="content">
+          we loved the place to stay beautiful night was so good & lovely
+          morning sounds
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-44531743/original/9f9b36c8-22fd-4f51-a2e2-1eb85c0e1865.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Sanal</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          We had a very relaxing time in the villa. The hosts were very
+          responsive when we had questions. The food they cooked was also great!
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-56556621/original/106504df-e131-45b2-8bab-aa809f8f5737.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Yiting</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">We had a wonderful time at Veluvana!</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/fa2b5a4d-fc11-438f-9ffc-21c6aab6129f.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Muhammad</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">It was just perfect. Thank you 🙏</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/7832c8d6-16e3-4aed-a923-d5c57c2350db.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Alex</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">
+          It was an amazing experience, I will never forget the words before
+          entering ARE YOU READY and we saw this wonderful place.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            width={40}
+            height={40}
+            src="https://a0.muscache.com/im/pictures/user/48bfe386-b947-443d-a7d8-9ba16dd87c1f.jpg?im_w=240"
+          />
+          <p className="name">Aldo</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          The service is impeccable. The staff is super friendly and responsive.
+          <br /> We highly recommend it.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/6d4366ac-fea5-4865-a914-5bf6cc2c8286.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Anisha</p>
+          <p className="date">June 2023</p>
+        </div>
+
+        <p className="content">
+          we loved the place to stay beautiful night was so good & lovely
+          morning sounds
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-44531743/original/9f9b36c8-22fd-4f51-a2e2-1eb85c0e1865.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Sanal</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          We had a very relaxing time in the villa. The hosts were very
+          responsive when we had questions. The food they cooked was also great!
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-56556621/original/106504df-e131-45b2-8bab-aa809f8f5737.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Yiting</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">We had a wonderful time at Veluvana!</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/fa2b5a4d-fc11-438f-9ffc-21c6aab6129f.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Muhammad</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">It was just perfect. Thank you 🙏</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/7832c8d6-16e3-4aed-a923-d5c57c2350db.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Alex</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">
+          It was an amazing experience, I will never forget the words before
+          entering ARE YOU READY and we saw this wonderful place.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            width={40}
+            height={40}
+            src="https://a0.muscache.com/im/pictures/user/48bfe386-b947-443d-a7d8-9ba16dd87c1f.jpg?im_w=240"
+          />
+          <p className="name">Aldo</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          The service is impeccable. The staff is super friendly and responsive.
+          <br /> We highly recommend it.
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/6d4366ac-fea5-4865-a914-5bf6cc2c8286.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Anisha</p>
+          <p className="date">June 2023</p>
+        </div>
+
+        <p className="content">
+          we loved the place to stay beautiful night was so good & lovely
+          morning sounds
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-44531743/original/9f9b36c8-22fd-4f51-a2e2-1eb85c0e1865.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Sanal</p>
+          <p className="date">June 2023</p>
+        </div>
+        <p className="content">
+          We had a very relaxing time in the villa. The hosts were very
+          responsive when we had questions. The food they cooked was also great!
+        </p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/User-56556621/original/106504df-e131-45b2-8bab-aa809f8f5737.jpeg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Yiting</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">We had a wonderful time at Veluvana!</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/fa2b5a4d-fc11-438f-9ffc-21c6aab6129f.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Muhammad</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">It was just perfect. Thank you 🙏</p>
+      </li>
+      <li>
+        <div className="profile">
+          <Image
+            src="https://a0.muscache.com/im/pictures/user/7832c8d6-16e3-4aed-a923-d5c57c2350db.jpg?im_w=240"
+            width={40}
+            height={40}
+          />
+          <p className="name">Alex</p>
+          <p className="date">May 2023</p>
+        </div>
+        <p className="content">
+          It was an amazing experience, I will never forget the words before
+          entering ARE YOU READY and we saw this wonderful place.
+        </p>
+      </li>
+    </ul>
   </div>
 );
 const Rule = () => (
@@ -683,13 +1161,47 @@ export function PlaceList(props) {
             </button>
           </li>
           <li>
-            <button>Amenities</button>
+            <button
+              onClick={() => {
+                const mainh = document.querySelector("main").scrollHeight;
+                const sleepH = document.querySelector(".sleep").scrollHeight;
+                const offersH = document.querySelector(".offers").scrollHeight;
+                window.scrollTo({
+                  top: mainh - sleepH - offersH - 147,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Amenities
+            </button>
           </li>
           <li>
-            <button>Reviews</button>
+            <button
+              onClick={() => {
+                const mainh = document.querySelector("main").scrollHeight;
+                window.scrollTo({
+                  top: mainh + 25,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Reviews
+            </button>
           </li>
           <li>
-            <button>Location</button>
+            <button
+              onClick={() => {
+                const mainh = document.querySelector("main").scrollHeight;
+                const reviewsh =
+                  document.querySelector("#reviews").scrollHeight;
+                window.scrollTo({
+                  top: mainh + reviewsh + 26,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Location
+            </button>
           </li>
           <div className={`check`} id="xddd">
             <div className="text">
@@ -709,3 +1221,96 @@ export function PlaceList(props) {
     </div>
   );
 }
+
+export const Map = () => {
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
+  });
+  if (!isLoaded) return <>...</>;
+  return (
+    <div id="map">
+      <h1>Where you’ll be</h1>
+      <h2>Sidemen, Bali, Indonesia</h2>
+      <GoogleMap
+        zoom={10}
+        center={{
+          lat: -8.47288,
+          lng: 115.44081,
+        }}
+        mapContainerClassName="map-container"
+      ></GoogleMap>
+    </div>
+  );
+};
+
+export const Footer = () => (
+  <footer id="footer">
+    <div className="upside">
+      <div className="content">
+        <h1>Explore other options in and around Sidemen</h1>
+        <ul>
+          <li>Lombok</li>
+          <li>Sanur</li>
+          <li>Penida Island</li>
+          <li>Denpasar</li>
+          <li>Bingin Beach</li>
+          <li>Gili Trawangan</li>
+          <li>Nusa Dua Beach</li>
+          <li>Nusa Lembongan</li>
+          <li>Kuta Beach</li>
+          <li>Seminyak Beach</li>
+          <li>Canggu Beach</li>
+          <li>Ubud</li>
+        </ul>
+        <h2>Other types of stays on Airbnb</h2>
+        <ul>
+          <li>Sidemen vacation rentals</li>
+          <li>Sidemen monthly stays</li>
+          <li>Design</li>
+          <li>Amazing pools</li>
+          <li>OMG!</li>
+          <li>Luxury rentals in Bali</li>
+        </ul>
+      </div>
+    </div>
+    <div className="downside">
+      <div className="content">
+        <ul className="top">
+          <ul className="s">
+            <li>Support</li>
+            <li>Help Center</li>
+            <li>AirCover</li>
+            <li>Supporting people with disabilities</li>
+            <li>Cancellation options</li>
+            <li>Our COVID-19 Response</li>
+            <li>Report a neighborhood concern</li>
+          </ul>
+          <ul className="s">
+            <li>Community</li>
+            <li>Airbnb.org: disaster relief housing</li>
+            <li>Combating discrimination</li>
+          </ul>
+          <ul className="s">
+            <li>Hosting</li>
+            <li>Airbnb your home</li>
+            <li>AirCover for Hosts</li>
+            <li>Explore hosting resources</li>
+            <li>Visit our community forum</li>
+            <li>How to host responsibly</li>
+            <li>Airbnb-friendly apartments</li>
+          </ul>
+          <ul>
+            <li>Airbnb</li>
+            <li>Newsroom</li>
+            <li>Learn about new features</li>
+            <li>Letter from our founders</li>
+            <li>Careers</li>
+            <li>Investors</li>
+            <li>Gift cards</li>
+          </ul>
+        </ul>
+        <p className="xd">© 2023 Airbnb, Inc</p>
+      </div>
+    </div>
+  </footer>
+);

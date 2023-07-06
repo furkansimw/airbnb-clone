@@ -1096,30 +1096,229 @@ body {
     }
     #reviews {
       padding: 48px 0px;
+      width: 100%;
       border-bottom: 1px solid #22222226;
+      .upp {
+        width: 100%;
+        margin-bottom: 2rem;
+        h1 {
+          svg {
+            margin-right: 8px;
+          }
+          display: flex;
+          font-weight: 600;
+          align-items: center;
+          font-size: 22px;
+          margin-bottom: 2rem;
+        }
+        .a {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .l {
+            width: 40%;
+            display: block;
+            &:first-child {
+              margin-right: 10%;
+            }
+            li {
+              width: 100%;
+              margin-bottom: 1rem;
+              display: flex;
+              align-items: center;
+              p {
+                font-size: 17px;
+                &:first-child {
+                  width: 100%;
+                }
+                &:last-child {
+                  font-size: 13px;
+                  font-weight: 600;
+                }
+              }
+              div {
+                width: 40%;
+                display: flex;
+                height: 4px;
+                align-items: center;
+                background-color: #dddddd;
+                border-radius: 2px;
+                margin-right: 8px;
+                overflow: hidden;
+                span {
+                  display: block;
+                  width: 96%;
+                  &.s {
+                    width: 90%;
+                  }
+                  &.m {
+                    width: 92%;
+                  }
+                  &.l {
+                    width: 94%;
+                  }
+
+                  height: 4px;
+                  background-color: #222;
+                }
+              }
+            }
+          }
+        }
+      }
+      ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        @media screen and (max-width: 800px) {
+          grid-template-columns: repeat(1, 1fr);
+          li {
+            width: 100%;
+            padding: 0px !important;
+          }
+        }
+        li {
+          margin-bottom: 40px;
+          padding-right: 4rem;
+          img {
+            margin-right: 12px;
+            border-radius: 100%;
+          }
+          .profile {
+            margin-bottom: 1rem;
+            img {
+              float: left;
+            }
+            .name {
+              display: block;
+              font-weight: 600;
+              font-size: 1rem;
+            }
+            .date {
+              color: #717171;
+              font-size: 14px;
+            }
+          }
+          .content {
+            padding: 0px !important;
+          }
+        }
+      }
+      button {
+        padding: 13px 23px;
+        border: 1px solid #000;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 17px;
+        transition: 0.15s ease-in-out all;
+        &:active {
+          transform: scale(0.9);
+        }
+        margin-top: 2rem;
+        &:hover {
+          background-color: #f7f7f7;
+        }
+      }
     }
     #map {
       padding: 48px 0px;
-      border-bottom: 1px solid #22222226;
-    }
-    #host {
-      padding: 48px 0px;
-      border-bottom: 1px solid #22222226;
-    }
-    .things-to-know {
-      padding: 48px 0px;
+      overflow: hidden;
+      h1,
+      h2 {
+        margin-bottom: 24px;
+      }
+      h1 {
+        font-size: 22px;
+        font-weight: 600;
+      }
+      h2 {
+        font-size: 1rem;
+        font-weight: 400;
+      }
+      .map-container {
+        height: 500px;
+      }
     }
   }
 }
 footer#footer {
   background-color: #f7f7f7;
   border-top: 1px solid #22222226;
-  padding: 48px 80px;
-  display: flex;
-  justify-content: center;
-  .content {
-    max-width: 1200px;
+  .upside {
+    padding: 48px 80px;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    .content {
+      max-width: 1200px;
+      width: 100%;
+      h1 {
+        margin-bottom: 2rem;
+        font-size: 22px;
+        font-weight: 600;
+      }
+      ul {
+        position: relative;
+        left: -8px;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+          cursor: pointer;
+          padding: 8px;
+          width: 25%;
+          font-size: 1rem;
+        }
+      }
+      h2 {
+        margin: 2rem 0px 1rem;
+        font-size: 18px;
+        font-weight: 400;
+      }
+    }
+    border-bottom: 1px solid #22222226;
+  }
+  .downside {
+    padding: 48px 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .content {
+      max-width: 1200px;
+      width: 100%;
+      .top {
+        display: flex;
+        justify-content: space-between;
+      }
+      ul {
+        position: relative;
+        left: -8px;
+        li {
+          cursor: pointer;
+          white-space: nowrap;
+          padding: 8px;
+          width: 25%;
+          font-size: 15px;
+          &:first-child {
+            font-weight: 600;
+            text-decoration: none !important;
+            cursor: default;
+          }
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .xd {
+        border-top: 1px solid #22222226;
+        margin: 2rem 0px;
+        cursor: pointer;
+        padding-top: 2rem;
+        position: relative;
+        left: -8px;
+        &:hover {
+          font-weight: 600;
+        }
+      }
+    }
   }
 }
 .headerlist {
@@ -1149,14 +1348,15 @@ footer#footer {
       align-items: center;
       height: 100%;
       position: relative;
-
       li {
         margin-right: 2rem;
         height: 100%;
         display: flex;
         align-items: center;
         cursor: pointer;
+
         button {
+          font-size: 1rem;
           font-weight: 600;
           position: relative;
           height: 100%;
@@ -1282,6 +1482,18 @@ footer#footer {
     left: 2rem;
     width: calc(100% - 4rem);
   }
+  &.reviews {
+    max-width: 1000px !important;
+    width: 100% !important;
+    left: calc(50% - 500px) !important;
+    @media screen and (max-width: 1064px) {
+      left: 2rem !important;
+      width: calc(100% - 4rem) !important;
+    }
+    .context {
+      padding: 0px !important;
+    }
+  }
   z-index: 999091;
   transition: 0.4s ease-in-out all;
   display: flex;
@@ -1368,6 +1580,111 @@ footer#footer {
           &.de {
             color: #717171;
             font-size: 1rem;
+          }
+        }
+      }
+    }
+    .reviewspopup {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      overflow: hidden;
+      border-bottom: 1px solid #22222226;
+      .upp {
+        padding: 24px;
+        width: 40%;
+        margin-bottom: 2rem;
+        h1 {
+          color: #222;
+          svg {
+            margin-right: 8px;
+          }
+          display: flex;
+          font-weight: 700;
+          align-items: center;
+          font-size: 2rem;
+          width: 100%;
+          margin-bottom: 2rem;
+        }
+        ul {
+          width: 100%;
+          display: block;
+          &:first-child {
+            margin-right: 10%;
+          }
+          li {
+            margin-bottom: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            p {
+              font-size: 1rem;
+              &:first-child {
+                width: 100%;
+              }
+              &:last-child {
+                font-size: 13px;
+                font-weight: 600;
+              }
+            }
+            div {
+              width: 40%;
+              display: flex;
+              height: 4px;
+              align-items: center;
+              background-color: #dddddd;
+              border-radius: 2px;
+              margin-right: 8px;
+              overflow: hidden;
+              span {
+                display: block;
+                width: 96%;
+                &.s {
+                  width: 90%;
+                }
+                &.m {
+                  width: 92%;
+                }
+                &.l {
+                  width: 94%;
+                }
+
+                height: 4px;
+                background-color: #222;
+              }
+            }
+          }
+        }
+      }
+      ul {
+        height: 100%;
+        width: 60%;
+        overflow-y: auto;
+        li {
+          margin-bottom: 40px;
+          padding-right: 4rem;
+          img {
+            margin-right: 12px;
+            border-radius: 100%;
+          }
+          .profile {
+            margin-bottom: 1rem;
+            img {
+              float: left;
+            }
+            .name {
+              display: block;
+              font-weight: 600;
+              font-size: 1rem;
+            }
+            .date {
+              color: #717171;
+              font-size: 14px;
+            }
+          }
+          .content {
+            padding: 0px !important;
           }
         }
       }
