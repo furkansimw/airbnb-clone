@@ -52,6 +52,7 @@ const Page = ({ data }) => {
     });
   };
   const [more, setMore] = useState({ more: false, offers: false });
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const images = document.querySelector(".images");
@@ -60,24 +61,19 @@ const Page = ({ data }) => {
       rootMargin: "0px",
       threshold: 0,
     };
+    const callback = (entries) =>
+      entries.map((entry) => setActive(!entry.isIntersecting && "active"));
 
-    const callback = (entries, observer) => {
-      entries.forEach((entry) =>
-        document
-          .querySelector(".headerlist")
-          ?.classList?.toggle("active", !entry.isIntersecting)
-      );
-    };
     const observer = new IntersectionObserver(callback, options);
     observer.observe(images);
-  }, []);
+  }, [active]);
 
   return (
     <>
       <MoreBg more={more} setMore={setMore} />
       <MoreContent more={more} setMore={setMore} />
       <div className="place">
-        <PlaceList />
+        <PlaceList className={active} />
         <header>
           <div className="upside">
             <Link className="logo" href={"/"}>

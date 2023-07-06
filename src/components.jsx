@@ -597,9 +597,9 @@ export const DateView = () => {
   );
 };
 
-export function PlaceList() {
+export function PlaceList(props) {
   return (
-    <div className="headerlist">
+    <div className={`headerlist ${props.className}`}>
       <div className="content">
         <ul>
           <li>
