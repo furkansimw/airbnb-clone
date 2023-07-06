@@ -51,7 +51,7 @@ const Page = ({ data }) => {
     window.scrollTo({ top: mh + rh + mah + 24, behavior: "smooth" });
   };
 
-  const [more, setMore] = useState({ more: false, offers: false });
+  const [more, setMore] = useState(null);
   const [active, setActive] = useState("");
 
   useEffect(() => {
@@ -226,9 +226,7 @@ const Page = ({ data }) => {
                       <br />
                       ...
                     </p>
-                    <button
-                      onClick={() => setMore({ more: true, offers: false })}
-                    >
+                    <button onClick={() => setMore("more")}>
                       Show more <NextIcon />
                     </button>
                   </div>
