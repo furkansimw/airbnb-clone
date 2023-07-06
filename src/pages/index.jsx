@@ -68,7 +68,7 @@ const Home = ({ data }) => {
     const worker = () =>
       document
         .querySelector("header")
-        .classList.toggle("up", window.scrollY > 0);
+        ?.classList.toggle("up", window.scrollY > 0);
     window.addEventListener("scroll", worker);
     return () => window.removeEventListener("scroll", worker);
   }, []);

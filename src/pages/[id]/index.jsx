@@ -13,7 +13,6 @@ import Image from "next/image";
 import {
   All,
   BedIcon,
-  CloseIcon,
   DiveIcon,
   HostBadge,
   KeyIcon,
@@ -60,7 +59,7 @@ const Page = ({ data }) => {
       entries.forEach((entry) =>
         document
           .querySelector(".headerlist")
-          .classList.toggle("active", !entry.isIntersecting)
+          ?.classList?.toggle("active", !entry.isIntersecting)
       );
     };
     const observer = new IntersectionObserver(callback, options);
