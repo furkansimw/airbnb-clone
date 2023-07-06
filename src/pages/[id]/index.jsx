@@ -83,6 +83,12 @@ const Page = ({ data }) => {
       <MoreBg more={more} setMore={setMore} />
       <MoreContent more={more} setMore={setMore} />
       <div className="place">
+        <Head>
+          <title>
+            Veluvana Bali - Owl Bamboo House - Treehouses for Rent in Sidemen,
+            Bali, Indonesia - Airbnb
+          </title>
+        </Head>
         <PlaceList className={active} />
         <header>
           <div className="upside">
