@@ -596,3 +596,35 @@ export const DateView = () => {
     </LocalizationProvider>
   );
 };
+
+export function PlaceList() {
+  return (
+    <div className="headerlist">
+      <div className="content">
+        <ul>
+          <li>
+            <button
+              onClick={() =>
+                window.scrollTo({
+                  top: 80,
+                  behavior: "smooth",
+                })
+              }
+            >
+              Photos
+            </button>
+          </li>
+          <li>
+            <button>Amenities</button>
+          </li>
+          <li>
+            <button>Reviews</button>
+          </li>
+          <li>
+            <button>Location</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+}

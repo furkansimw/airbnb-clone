@@ -22,7 +22,13 @@ import {
   ShareIcon,
   SuperHostBadge,
 } from "@/icons";
-import { DateView, MoreBg, MoreContent, OffsersList } from "@/components";
+import {
+  DateView,
+  MoreBg,
+  MoreContent,
+  OffsersList,
+  PlaceList,
+} from "@/components";
 
 const Page = ({ data }) => {
   const title =
@@ -71,30 +77,7 @@ const Page = ({ data }) => {
       <MoreBg more={more} setMore={setMore} />
       <MoreContent more={more} setMore={setMore} />
       <div className="place">
-        <div className="headerlist">
-          <div className="content">
-            <ul>
-              <li>
-                <button
-                  onClick={() =>
-                    window.scrollTo({ top: 80, behavior: "smooth" })
-                  }
-                >
-                  Photos
-                </button>
-              </li>
-              <li>
-                <button>Amenities</button>
-              </li>
-              <li>
-                <button>Reviews</button>
-              </li>
-              <li>
-                <button>Location</button>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <PlaceList />
         <header>
           <div className="upside">
             <Link className="logo" href={"/"}>
