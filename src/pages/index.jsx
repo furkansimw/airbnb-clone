@@ -195,7 +195,7 @@ const Home = ({ data }) => {
 
 export default Home;
 
-export const getStaticProps = () =>
+export const getServerSideProps = () =>
   fetch(
     (process.env.NODE_ENV === "production"
       ? process.env.URL
