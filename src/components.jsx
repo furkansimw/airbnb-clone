@@ -1226,17 +1226,49 @@ export const Map = () => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_API_KEY,
   });
+
+  useEffect(() => {
+    if (isLoaded) {
+      async function initMap() {
+        const { Map } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement } = await google.maps.importLibrary(
+          "marker"
+        );
+        const map = new Map(document.querySelector("#map > .map-container"), {
+          center: { lat: -8.4733, lng: 115.4419 },
+          zoom: 19,
+          mapId: "123456",
+          disableDefaultUI: true,
+        });
+        const marker = new AdvancedMarkerElement({
+          map,
+          position: { lat: -8.47328, lng: 115.44185 },
+        });
+        marker.setMap(map);
+      }
+      initMap();
+    }
+  }, [isLoaded]);
+
   if (!isLoaded) return <>...</>;
   return (
     <div id="map">
       <h1>Where you’ll be</h1>
       <h2>Sidemen, Bali, Indonesia</h2>
       <GoogleMap
-        zoom={10}
+        zoom={19}
+        id="123456"
         center={{
-          lat: -8.47288,
-          lng: 115.44081,
+          lat: -8.4733,
+          lng: 115.4419,
         }}
+        options={{
+          disableDefaultUI: true,
+          zoomControl: true,
+          scrollwheel: true,
+          draggable: true,
+        }}
+        streetView={false}
         mapContainerClassName="map-container"
       ></GoogleMap>
     </div>

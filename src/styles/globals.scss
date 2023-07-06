@@ -1222,6 +1222,8 @@ body {
     #map {
       padding: 48px 0px;
       overflow: hidden;
+      margin-bottom: 2rem;
+      height: 600px !important;
       h1,
       h2 {
         margin-bottom: 24px;
@@ -1235,7 +1237,7 @@ body {
         font-weight: 400;
       }
       .map-container {
-        height: 500px;
+        height: 100% !important;
       }
     }
   }
