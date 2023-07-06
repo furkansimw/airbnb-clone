@@ -42,28 +42,22 @@ const Page = ({ data }) => {
   const images =
     data.data.presentation.stayProductDetailPage.sections.sections[6].section
       .mediaItems;
+
   const scrollHost = () => {
     const mh = document.querySelector("main").scrollHeight;
     const rh = document.querySelector("#reviews").scrollHeight;
     const mah = document.querySelector("#map").scrollHeight;
-    window.scrollTo({
-      top: mh + rh + mah + 24,
-      behavior: "smooth",
-    });
+    window.scrollTo({ top: mh + rh + mah + 24, behavior: "smooth" });
   };
+
   const [more, setMore] = useState({ more: false, offers: false });
   const [active, setActive] = useState("");
 
   useEffect(() => {
     const images = document.querySelector(".images");
-    const options = {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0,
-    };
+    const options = { root: null, rootMargin: "0px", threshold: 0 };
     const callback = (entries) =>
       entries.map((entry) => setActive(!entry.isIntersecting && "active"));
-
     const observer = new IntersectionObserver(callback, options);
     observer.observe(images);
   }, []);
