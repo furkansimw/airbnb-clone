@@ -195,13 +195,18 @@ const Home = ({ data }) => {
 
 export default Home;
 
-export const getServerSideProps = () =>
+export const getStaticProps = () =>
   fetch(
     (process.env.NODE_ENV === "production"
       ? process.env.URL
       : "http://localhost:3000") +
       "/api" +
-      "/home"
+      "/home",
+    {
+      next: {
+        revalidate: 60,
+      },
+    }
   )
     .then((r) => r.json())
     .then((r) => ({ props: { data: r } }));
@@ -358,7 +363,7 @@ const PrevIcon = () => (
   </svg>
 );
 
-const StarIcon = () => (
+export const StarIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 32 32"
